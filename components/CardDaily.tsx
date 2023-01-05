@@ -8,33 +8,47 @@ type Props = {
 }
 export const CardDaily = ({ daily, units }: Props) => {
     return (
-        <div className="card  text-bg-dark mb-2">
-            <div className="card-header">{`${daily.weathercode} - ${ WEATHER_CODE[daily.weathercode as keyof typeof WEATHER_CODE]}`}</div>
+        <div className="card  text-bg-dark h-100">
+            <div className="card-header">
+                <p>{stringToDate(daily.time)}</p>
+                <h5>{WEATHER_CODE[daily.weathercode as keyof typeof WEATHER_CODE]}</h5>
+            </div>
             <div className="card-body">
-                <table className="table table-dark table-sm">
-                    <thead>
-                        <tr>
-                            <td rowSpan={3} scope="col"></td>
-                            <td scope="col" colSpan={2}>Temperature</td>
-                            <td scope="col">windgusts Max</td>
-                            <td scope="col">windspeed Max</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={2}>{stringToDate(daily.time)}</td>
-                            <td>Min</td>
-                            <td>Max</td>
-                            <td rowSpan={2}>{`${daily.windgustsMax} ${units.windgustsMax}`}</td>
-                            <td rowSpan={2}>{`${daily.windspeedMax} ${units.windspeedMax}`}</td>
-                        </tr>
-                        <tr>
-                            <td>{`${daily.temperatureMin} ${units.temperatureMin}`}</td>
-                            <td>{`${daily.temperatureMax} ${units.temperatureMax}`}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className="row">
+                    <div className="col-12">
+                        Temperatura
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-6">
+                        min.
+                        <div className="d-flex flex-wrap justify-content-center">
 
+                            <h2>{daily.temperatureMin}</h2>
+                            <h5>{units.temperatureMin}</h5>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        max.
+                        <div className="d-flex flex-wrap justify-content-center">
+
+                            <h2>{daily.temperatureMax}</h2>
+                            <h5>{units.temperatureMax}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="card-footer">
+                <div className="row">
+                    <div className="col-6">
+                        Ráfagas de viento
+                        <h5>{`${daily.windgustsMax} ${units.windgustsMax}`}</h5>
+                    </div>
+                    <div className="col-6">
+                        Velocidad del viento
+                        <h5>{`${daily.windspeedMax} ${units.windspeedMax}`}</h5>
+                    </div>
+                </div>
             </div>
         </div>
     )

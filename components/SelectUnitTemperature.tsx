@@ -13,27 +13,27 @@ export const SelectUnitTemperature = () => {
 
         if (setStateForecast) {
             setStateForecast({
-              type: 'UNITTEMPERATURE',
-              payload: unitTemperature
+                type: 'UNITTEMPERATURE',
+                payload: unitTemperature
             })
-          }
+        }
     }
 
     return (
         <div>
 
             <div className="form-check">
-                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value='celsius' onChange={handleChange} checked={unitTemp === 'celsius'}/>
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value='celsius' onChange={handleChange} checked={unitTemp === 'celsius'} />
                 <label className="form-check-label text-justify-left text-white-50" htmlFor="flexRadioDefault1">
                     °C - Celsius
                 </label>
             </div>
 
             <div className="form-check">
-            <input className="form-check-input text-white-50" type="radio" name="flexRadioDefault" value='fahrenheit' id="flexRadioDefault2" onChange={handleChange} checked={unitTemp === 'fahrenheit'}/>
-            <label className="form-check-label text-white-50" htmlFor="flexRadioDefault2">
-                °F - Fahrenheit 
-            </label>
+                <input className="form-check-input text-white-50" type="radio" name="flexRadioDefault" value='fahrenheit' id="flexRadioDefault2" onChange={handleChange} checked={unitTemp === 'fahrenheit'} />
+                <label className="form-check-label text-white-50" htmlFor="flexRadioDefault2">
+                    °F - Fahrenheit
+                </label>
             </div>
         </div>
     )

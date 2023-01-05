@@ -8,14 +8,13 @@ export const handler = async (
     const { method } = req;
     const body = req.body || {};
     
-    const query = req.query
-    console.log('query -> ', query)
-    
+    const query = req.query    
     if (req.method === "GET") {
 
      const {latitude, longitude, unitTemperature} = query
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&temperature_unit=${unitTemperature}&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max,windgusts_10m_max&current_weather=true&timezone=America%2FNew_York&start_date=2023-01-04&end_date=2023-01-08`
-      console.log('url -> ', url)
+
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&temperature_unit=${unitTemperature}&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max,windgusts_10m_max&current_weather=true&timezone=America%2FNew_York&start_date=2023-01-05&end_date=2023-01-09`
+
       const options = {
           method: method,
           headers: { 'Content-Type': 'application/json' }
@@ -25,7 +24,6 @@ export const handler = async (
       const data = await response.json()
 
       if (!response.ok) {
-        console.error(response.statusText);
         return res.status(response.status).end();
       }
       

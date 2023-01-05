@@ -14,10 +14,8 @@ export const SelectCity = ({ cities }: Props) => {
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const cityId = event.target.value
         setCity(cityId);
-        console.log('city id ->',cityId)
 
         const citySelect: City | undefined = cities.find(item => item.code === cityId )
-        console.log('citySelect -> ', citySelect)
 
         if (setStateForecast && citySelect) {
             setStateForecast({
