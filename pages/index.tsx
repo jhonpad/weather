@@ -1,5 +1,5 @@
 import { Inter } from '@next/font/google'
-import { Layout } from 'components/Layout/Layout'
+import { Layout } from 'components/Layout'
 
 import { SelectCity } from 'components/SelectCity'
 import { SelectUnitTemperature } from 'components/SelectUnitTemperature'
@@ -14,20 +14,17 @@ export default function Home() {
       <ForecastProvider>
         <div className="container text-center">
           <div className="row justify-content-md-center">
-            <div className="col col-6 mb-3">
+            <div className=" col-sm-12 col-md-4 mb-3">
               <SelectCity cities={CitiesMock()} />
             </div>
 
-          </div>
-          <div className="row justify-content-md-center">
-
-            <div className="col col-3 col-xs-12 mb-3">
+            <div className=" col-sm-12 col-md-3 mb-3">
               <SelectUnitTemperature />
             </div>
           </div>
 
           <div className="row justify-content-md-center">
-            <div className="col-md-auto">
+            <div className="col-12">
               <InfoWeather />
             </div>
           </div>
